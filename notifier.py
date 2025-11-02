@@ -1,13 +1,37 @@
 from datetime import datetime
 from typing import Dict, List, Any
 from pypushdeer import PushDeer
+import requests
+
+
+class PushWX:
+
+
+    def __init__(self, pushkey: str):
+        self.server=f'https://wx.xtuis.cn/{pushkey}.send'
+        self.push_wx = requests.session()
+
+    
+    def send_markdown(self, text: str, desp: str):
+        data = {
+            'text': text,
+            'desp': desp,
+        }
+        self.push_wx.post(url=self.server, data=data)
+
 
 
 class Notifier:
     """通知管理类，负责格式化调仓变化信息并发送通知"""
     
-    def __init__(self, pushkey: str, server: str = "https://api2.pushdeer.com"):
-        self.pushdeer = PushDeer(server=server, pushkey=pushkey)
+    def __init__(self, pushkey: str, server: str = "https://api2.pushdeer.com", type_: str='WX'):
+        """
+        :param type_: PushDeer or WX
+        """
+        if type_ == 'WX':
+            self.pushdeer = PushWX(pushkey=pushkey)
+        else:
+            self.pushdeer = PushDeer(server=server, pushkey=pushkey)
     
     def format_rebalancing_message(self, cube_name: str, cube_id: str, rebalancing_data: Dict[str, Any], is_first_time: bool = False) -> str:
         """

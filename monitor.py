@@ -31,7 +31,8 @@ class SnowballMonitor:
         if self.config['pushdeer']['pushkey'] != "your_pushkey_here":
             self.notifier = Notifier(
                 pushkey=self.config['pushdeer']['pushkey'],
-                server=self.config['pushdeer']['server']
+                server=self.config['pushdeer']['server'],
+                type_=self.config['pushdeer']['type_']
             )
         else:
             print("警告: PushDeer pushkey未配置，将不会发送通知")

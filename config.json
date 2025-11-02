@@ -3,14 +3,15 @@
     "token": "你的雪球Token"
   },
   "pushdeer": {
-    "pushkey": "你的PushDeer推送key",
+    "type_": "WX",
+    "pushkey": "你的PushDeer推送key or 微信虾推送的token",
     "server": "https://api2.pushdeer.com"
   },
   "monitor": {
     "check_interval": 60,
     "active_hours": {
       "start": "09:25",
-      "end": "16:00",
+      "end": "23:00",
       "timezone": "Asia/Shanghai"
     },
     "sleep_interval_inactive": 300,
@@ -18,6 +19,30 @@
       {
         "id": "ZH3126091",
         "name": "管我财-组合"
+      },
+      {
+        "id": "ZH3461351",
+        "name": "小水手2025a股"
+      },
+      {
+        "id": "ZH1352702",
+        "name": "投资就是算好账-研究挖掘价值A股"
+      },
+      {
+        "id": "ZH3126091",
+        "name": "管我财-狗不叫性乃遷"
+     },
+     {
+      "id": "ZH3257543",
+      "name": "山湖水-轮动测试（半实盘）"
+      },
+      {
+         "id": "ZH2006181",
+         "name": "韭菲特漂流记-关停"
+      },
+      {
+        "id": "ZH1352702",
+        "name": "投资就是算好账-研究挖掘价值A股"
       }
     ]
   }
